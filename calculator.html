@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id="box">
+        <div id="display"></div>
+        <div id="keyboard">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div class="black">+</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div class="black">-</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div class="black">*</div>
+            <div class="red">C</div>
+            <div>0</div>
+            <div class="black">=</div>
+            <div class="black">/</div>
+
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    var keys = document.querySelectorAll("#keyboard>div")
+    var bag=""
+
+    for(var i=0;i<keys.length;i++)
+    {
+        keys[i].addEventListener("click",myCalc)
+    }
+
+    function myCalc()
+    {
+        var targetNumber=event.target.innerText
+
+        if(targetNumber=="C")
+        {
+            document.querySelector("#display").innerText=""
+            bag="";
+        }
+        else if(targetNumber=="=")
+        {
+            document.querySelector("#display").innerText=eval(bag);
+        }
+        else
+        {
+            bag = bag+targetNumber;
+            document.querySelector("#display").innerText=bag;
+        } 
+    }
+</script>
